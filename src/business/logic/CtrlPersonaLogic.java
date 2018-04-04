@@ -34,17 +34,17 @@ public class CtrlPersonaLogic {
 
 
 
-public Persona getOne(int id)throws Exception{
-return dataPer.getOne(id);
-}
-
-public Persona getByDni(String dni) throws Exception{
-Persona p = new Persona();
-p.setDni(dni);
-return getByDni(p);
-}
-*/
+	public Persona getOne(int id)throws Exception{
+	return dataPer.getOne(id);
+	}
 	
+	public Persona getByDni(String dni) throws Exception{
+	Persona p = new Persona();
+	p.setDni(dni);
+	return getByDni(p);
+	}
+	*/
+		
 	
 	public void add(Persona p) throws Exception{
 		dataPer.add(p);

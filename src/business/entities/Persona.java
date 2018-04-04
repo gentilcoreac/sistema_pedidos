@@ -1,6 +1,8 @@
 package business.entities;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable{
 	private int id_persona;
 	private String razonSocial;
 	private String cuil;
@@ -18,8 +20,13 @@ public class Persona {
 	private String longitud;	
 	
 	//private Categoria categoria;
+	//direccion otra clase?
 	
-
+	@Override
+	public boolean equals(Object p){
+		return(p instanceof Persona) && (((Persona)p).getDni().equals(this.getDni()));
+				}
+	
 	public Persona(){	
 	}
 	
