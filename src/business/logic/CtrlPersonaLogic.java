@@ -18,17 +18,23 @@ public class CtrlPersonaLogic {
 		pers = new ArrayList<Persona>();
 	}
 
+	
+	public ArrayList<Persona> getAll() throws Exception{
+		return dataPer.getAll();
+	}
+	
+	public Persona getByDni(Persona p) throws Exception{
+		return this.dataPer.getByDni(p);
+	}
+	
+	
 	/*
 	public void add(Persona p) throws Exception{
 		dataPer.add(p);
 	}
 	*/
 	
-	public Persona getByDni(Persona p) throws Exception{
-		return this.dataPer.getByDni(p);
-	}
-	/*
-	public Persona getOne(Persona p)throws Exception{
+	/*public Persona getOne(Persona p)throws Exception{
 			return dataPer.getOne(p);
 	}
 
@@ -52,10 +58,7 @@ public class CtrlPersonaLogic {
 		dataPer.delete(p);
 	}
 */	
-	public ArrayList<Persona> getAll() throws Exception{
-		return dataPer.getAll();
 
-	}
 	/*
 	public Persona getLoggedUser(String usuario,String pass)throws Exception{
 		return dataPer.getLoggedUser(usuario, pass);

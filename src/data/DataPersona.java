@@ -88,8 +88,8 @@ public class DataPersona {
 				p.setLatitud(rs.getString("latitud"));
 				p.setLongitud(rs.getString("longitud"));
 				
-				//		p.setHabilitado(rs.getBoolean("habilitado"));
-			//	int idCat= rs.getInt("id_categoria");
+				//p.setHabilitado(rs.getBoolean("habilitado"));
+				//int idCat= rs.getInt("id_categoria");
 				//p.setCategoria(dc.getOne(idCat));
 			}
 		} catch (SQLException sqlex) {
