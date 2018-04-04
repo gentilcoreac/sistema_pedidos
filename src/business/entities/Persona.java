@@ -3,7 +3,8 @@ package business.entities;
 public class Persona {
 	private int id_persona;
 	private String razonSocial;
-	private int dni;
+	private String cuil;
+	private String dni;
 	private String nombre;
 	private String apellido;
 	private String direccion;
@@ -22,13 +23,14 @@ public class Persona {
 	public Persona(){	
 	}
 	
-	public Persona(int id_persona, String razonSocial, int dni, String nombre, String apellido, String direccion,
+	public Persona(int id_persona, String razonSocial, String dni, String cuil, String nombre, String apellido, String direccion,
 			String ciudad, String telefono, String celular, String email, String usuario, String contrasenia, String latitud,
 			String longitud) {
 		super();
 		this.id_persona = id_persona;
 		this.razonSocial = razonSocial;
 		this.dni = dni;
+		this.cuil = cuil;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.direccion = direccion;
@@ -72,10 +74,10 @@ public class Persona {
 	public void setId_persona(int id_persona) {
 		this.id_persona = id_persona;
 	}
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {
@@ -132,6 +134,13 @@ public class Persona {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
+	public String getCuil() {
+		return cuil;
+	}
+	public void setCuil(String cuil) {
+		this.cuil = cuil;
+	}
+
 	
 		
 	

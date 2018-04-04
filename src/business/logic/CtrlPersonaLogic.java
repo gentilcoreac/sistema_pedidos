@@ -28,28 +28,30 @@ public class CtrlPersonaLogic {
 	}
 	
 	
-	/*
+	/*public Persona getOne(Persona p)throws Exception{
+	return dataPer.getOne(p);
+}
+
+
+
+public Persona getOne(int id)throws Exception{
+return dataPer.getOne(id);
+}
+
+public Persona getByDni(String dni) throws Exception{
+Persona p = new Persona();
+p.setDni(dni);
+return getByDni(p);
+}
+*/
+	
+	
 	public void add(Persona p) throws Exception{
 		dataPer.add(p);
 	}
-	*/
 	
-	/*public Persona getOne(Persona p)throws Exception{
-			return dataPer.getOne(p);
-	}
-
 	
-		
-	public Persona getOne(int id)throws Exception{
-		return dataPer.getOne(id);
-	}
-	
-	public Persona getByDni(String dni) throws Exception{
-		Persona p = new Persona();
-		p.setDni(dni);
-		return getByDni(p);
-	}
-	
+	/*	
 	public void update(Persona p) throws Exception{
 		dataPer.update(p);
 	}

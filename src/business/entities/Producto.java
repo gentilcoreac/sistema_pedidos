@@ -8,7 +8,7 @@ public class Producto {
 	private int estado;
 	private float precio;
 
-	private Categoria categoria;
+	private CategoriaPersona categoria;
 
 	//private Precio precioActual;
 	//private Persona usuario;
@@ -17,7 +17,7 @@ public class Producto {
 		
 	}
 	
-	public Producto(int id_producto, String nombre, String codigo, int estado, Categoria categoria,
+	public Producto(int id_producto, String nombre, String codigo, int estado, CategoriaPersona categoria,
 			float precio) {
 		super();
 		this.id_producto = id_producto;
@@ -53,10 +53,10 @@ public class Producto {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
-	public Categoria getCategoria() {
+	public CategoriaPersona getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(CategoriaPersona categoria) {
 		this.categoria = categoria;
 	}
 	public float getPrecioActual() {

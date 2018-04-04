@@ -16,7 +16,7 @@ public class console {
 		
 		Persona p=new Persona();
 		
-		int dni=37831713;
+		String dni="37831713";
 		
 		p.setDni(dni);
 		p= ctrPer.getByDni(p);
