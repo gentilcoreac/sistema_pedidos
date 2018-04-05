@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import business.entities.CategoriaPersona;
+import business.entities.Categoria_Persona;
 import business.entities.Persona;
 import tools.AppDataException;
 
@@ -22,38 +22,35 @@ public class DataPersona {
 		try {
 			stmt = FactoryConexion.getInstancia().getConn().createStatement();
 			
-			rs = stmt.executeQuery("select id_persona, razon_social, dni, cuil, nombre, apellido, direccion, ciudad, telefono, celular, email, usuario, contrasenia, latitud, longitud "
-								+ " from persona"); 
-			
-			/*rs = stmt.executeQuery(""
-					+ "select p.*,c.* from persona p "
-					+ "inner join CategoriaPersona c "
-					+ "on p.id_CategoriaPersona=c.id_CategoriaPersona");*/ 	
+			rs = stmt.executeQuery("select p.id_persona, p.razon_social, p.dni, p.cuil, p.nombre, p.apellido, p.direccion, p.ciudad, p.telefono, p.celular, p.email, p.usuario, p.contrasenia, p.latitud, p.longitud "
+								+ " cp.id_categoria_persona, cp.descripcion" 
+								+ " from persona p"
+								+ " left join categoria_persona cp 	on p.id_categoria_persona=cp.id_categoria_persona"); 
 				
 			if(rs!=null){
 						while(rs.next()){
 							Persona p= new Persona();
-							p.setId_persona(rs.getInt("id_persona"));
-							p.setRazonSocial(rs.getString("razon_social"));
-							p.setNombre(rs.getString("nombre"));
-							p.setApellido(rs.getString("apellido"));
-							p.setDni(rs.getString("dni"));
-							p.setCuil(rs.getString("cuil"));
-							p.setUsuario(rs.getString("usuario"));		
-							p.setContrasenia(rs.getString("contrasenia"));								
-							p.setEmail(rs.getString("email"));
-							p.setCelular(rs.getString("celular"));
-							p.setTelefono(rs.getString("telefono"));
-							p.setCiudad(rs.getString("ciudad"));
-							p.setDireccion(rs.getString("direccion"));
-							p.setLatitud(rs.getString("latitud"));
-							p.setLongitud(rs.getString("longitud"));
+							p.setId_persona(rs.getInt("p.id_persona"));
+							p.setRazonSocial(rs.getString("p.razon_social"));
+							p.setNombre(rs.getString("p.nombre"));
+							p.setApellido(rs.getString("p.apellido"));
+							p.setDni(rs.getString("p.dni"));
+							p.setCuil(rs.getString("p.cuil"));
+							p.setUsuario(rs.getString("p.usuario"));		
+							p.setContrasenia(rs.getString("p.contrasenia"));								
+							p.setEmail(rs.getString("p.email"));
+							p.setCelular(rs.getString("p.celular"));
+							p.setTelefono(rs.getString("p.telefono"));
+							p.setCiudad(rs.getString("p.ciudad"));
+							p.setDireccion(rs.getString("p.direccion"));
+							p.setLatitud(rs.getString("p.latitud"));
+							p.setLongitud(rs.getString("p.longitud"));
 							
 							//p.setHabilitado(rs.getBoolean("habilitado"));		
-							//CategoriaPersona cat=new CategoriaPersona();
-							//cat.setId(rs.getInt("c.id_CategoriaPersona"));
-							//cat.setDescripcion(rs.getString("c.descripcion"));
-							//p.setCategoriaPersona(cat);
+							Categoria_Persona cat=new Categoria_Persona();
+							cat.setId_categoria_persona(rs.getInt("cp.id_categoria_persona"));
+							cat.setDescripcion(rs.getString("cp.descripcion"));
+							p.setCategoriaPersona(cat);
 							pers.add(p);
 						}
 					}
@@ -79,27 +76,38 @@ public class DataPersona {
 	//	DataCategoriaPersona dc = new DataCategoriaPersona();
 		try {
 			pstmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"select id_persona, razon_social, dni, cuil, nombre, apellido, direccion, ciudad, telefono, celular, email, usuario, contrasenia, latitud, longitud "
-				  + "from persona "
-				  + "where dni=?");
+					" select p.id_persona, p.razon_social, p.dni, p.cuil, p.nombre, p.apellido, p.direccion, p.ciudad, p.telefono, p.celular, p.email, p.usuario, p.contrasenia, p.latitud, p.longitud, " 
+					+ " cp.id_categoria_persona, cp.descripcion" 
+					+ " from persona p" 
+					+ " left join categoria_persona cp 	on p.id_categoria_persona=cp.id_categoria_persona"
+					+ " where p.dni=?");
 			pstmt.setString(1, per.getDni());
 			rs = pstmt.executeQuery();
 			if(rs!=null && rs.next()){
 				p= new Persona();
-				p.setId_persona(rs.getInt("id_persona"));
-				p.setRazonSocial(rs.getString("razon_social"));
-				p.setNombre(rs.getString("nombre"));
-				p.setApellido(rs.getString("apellido"));
-				p.setDni(rs.getString("dni"));
-				p.setUsuario(rs.getString("usuario"));		
-				p.setContrasenia(rs.getString("contrasenia"));								
-				p.setEmail(rs.getString("email"));
-				p.setCelular(rs.getString("celular"));
-				p.setTelefono(rs.getString("telefono"));
-				p.setCiudad(rs.getString("ciudad"));
-				p.setDireccion(rs.getString("direccion"));
-				p.setLatitud(rs.getString("latitud"));
-				p.setLongitud(rs.getString("longitud"));
+				p.setId_persona(rs.getInt("p.id_persona"));
+				p.setRazonSocial(rs.getString("p.razon_social"));
+				p.setNombre(rs.getString("p.nombre"));
+				p.setApellido(rs.getString("p.apellido"));
+				p.setDni(rs.getString("p.dni"));
+				p.setCuil(rs.getString("p.cuil"));
+				p.setUsuario(rs.getString("p.usuario"));		
+				p.setContrasenia(rs.getString("p.contrasenia"));								
+				p.setEmail(rs.getString("p.email"));
+				p.setCelular(rs.getString("p.celular"));
+				p.setTelefono(rs.getString("p.telefono"));
+				p.setCiudad(rs.getString("p.ciudad"));
+				p.setDireccion(rs.getString("p.direccion"));
+				p.setLatitud(rs.getString("p.latitud"));
+				p.setLongitud(rs.getString("p.longitud"));
+				
+				//p.setHabilitado(rs.getBoolean("habilitado"));		
+				Categoria_Persona cat=new Categoria_Persona();
+				cat.setId_categoria_persona(rs.getInt("cp.id_categoria_persona"));
+				cat.setDescripcion(rs.getString("cp.descripcion"));
+				p.setCategoriaPersona(cat);
+
+			
 			}
 		} catch (SQLException sqlex) {
 			throw new AppDataException(sqlex, "Error al buscar una persona por dni.");
@@ -123,8 +131,8 @@ public class DataPersona {
 		ResultSet keyResultSet = null;
 		try {
 			pstmt = FactoryConexion.getInstancia().getConn().prepareStatement(
-					"INSERT INTO pedidos.persona (dni, razon_social, cuil, nombre, apellido, direccion, ciudad, telefono, celular, email, usuario, contrasenia, latitud, longitud) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+					"INSERT INTO pedidos.persona (dni, razon_social, cuil, nombre, apellido, direccion, ciudad, telefono, celular, email, usuario, contrasenia, latitud, longitud, id_categoria_persona) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 					PreparedStatement.RETURN_GENERATED_KEYS
 					);
 			pstmt.setString(1, p.getDni());
@@ -141,6 +149,7 @@ public class DataPersona {
 			pstmt.setString(12, p.getContrasenia());
 			pstmt.setString(13, p.getLatitud());
 			pstmt.setString(14, p.getLongitud());
+			pstmt.setInt(15, p.getCategoriaPersona().getId_categoria_persona());
 						
 			pstmt.execute();
 			keyResultSet = pstmt.getGeneratedKeys();
@@ -186,8 +195,9 @@ public class DataPersona {
 			stmt.setString(12, p.getContrasenia());
 			stmt.setString(13, p.getLatitud());
 			stmt.setString(14, p.getLongitud());
+			stmt.setInt(15, p.getCategoriaPersona().getId_categoria_persona());
 
-			stmt.setString(15, p.getDni());
+			stmt.setString(16, p.getDni());
 			
 			int rowsAffected=stmt.executeUpdate();
 			if(rowsAffected==0){throw new AppDataException(new Exception("Persona Inexistente, no se pudo actualizar"),"Error");}

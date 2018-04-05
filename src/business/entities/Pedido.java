@@ -14,7 +14,7 @@ public class Pedido {
 	private float precio_total;
 	private float iva;
 	private Persona persona;
-	private ArrayList<DetallesPedido> lineaDeDetalles;
+	private ArrayList<Detalles_Pedido> lineaDeDetalles;
 
 
 
@@ -23,7 +23,7 @@ public class Pedido {
 	
 	public Pedido(int id_pedido, Date fecha_pedido, Date fecha_entregado, Date fecha_requerido, Date fecha_anulado,
 			float precioSubTotal, float precioTotal, float iva, Persona persona,
-			ArrayList<DetallesPedido> lineaDeDetalles) {
+			ArrayList<Detalles_Pedido> lineaDeDetalles) {
 		super();
 		this.id_pedido = id_pedido;
 		this.fecha_pedido = fecha_pedido;
@@ -149,13 +149,13 @@ public class Pedido {
 
 
 
-	public ArrayList<DetallesPedido> getLineaDeDetalles() {
+	public ArrayList<Detalles_Pedido> getLineaDeDetalles() {
 		return lineaDeDetalles;
 	}
 
 
 
-	public void setLineaDeDetalles(ArrayList<DetallesPedido> lineaDeDetalles) {
+	public void setLineaDeDetalles(ArrayList<Detalles_Pedido> lineaDeDetalles) {
 		this.lineaDeDetalles = lineaDeDetalles;
 	}
 

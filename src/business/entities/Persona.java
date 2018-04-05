@@ -3,6 +3,9 @@ package business.entities;
 import java.io.Serializable;
 
 public class Persona implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	private int id_persona;
 	private String razonSocial;
 	private String cuil;
@@ -12,14 +15,14 @@ public class Persona implements Serializable{
 	private String direccion;
 	private String ciudad;
 	private String telefono;
-	private String  celular;
+	private String celular;
 	private String email;
 	private String usuario;
 	private String contrasenia;
 	private String latitud;		
 	private String longitud;	
+	private Categoria_Persona categoriaPersona;
 	
-	//private Categoria categoria;
 	//direccion otra clase?
 	
 	@Override
@@ -28,29 +31,31 @@ public class Persona implements Serializable{
 				}
 	
 	public Persona(){	
-	}
 	
-	public Persona(int id_persona, String razonSocial, String dni, String cuil, String nombre, String apellido, String direccion,
-			String ciudad, String telefono, String celular, String email, String usuario, String contrasenia, String latitud,
-			String longitud) {
-		super();
-		this.id_persona = id_persona;
-		this.razonSocial = razonSocial;
-		this.dni = dni;
-		this.cuil = cuil;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
-		this.ciudad = ciudad;
-		this.telefono = telefono;
-		this.celular = celular;
-		this.email = email;
-		this.usuario = usuario;
-		this.contrasenia = contrasenia;
-		this.latitud = latitud;
-		this.longitud = longitud;
 	}
-	
+		
+	public Persona(int id_persona, String razonSocial, String cuil, String dni, String nombre, String apellido,
+				String direccion, String ciudad, String telefono, String celular, String email, String usuario,
+				String contrasenia, String latitud, String longitud, Categoria_Persona categoriaPersona) {
+			super();
+			this.id_persona = id_persona;
+			this.razonSocial = razonSocial;
+			this.cuil = cuil;
+			this.dni = dni;
+			this.nombre = nombre;
+			this.apellido = apellido;
+			this.direccion = direccion;
+			this.ciudad = ciudad;
+			this.telefono = telefono;
+			this.celular = celular;
+			this.email = email;
+			this.usuario = usuario;
+			this.contrasenia = contrasenia;
+			this.latitud = latitud;
+			this.longitud = longitud;
+			this.categoriaPersona = categoriaPersona;
+		}
+
 	public String getRazonSocial() {
 		return razonSocial;
 	}
@@ -148,7 +153,15 @@ public class Persona implements Serializable{
 		this.cuil = cuil;
 	}
 
-	
+	public Categoria_Persona getCategoriaPersona() {
+		return categoriaPersona;
+	}
+
+	public void setCategoriaPersona(Categoria_Persona categoriaPersona) {
+		this.categoriaPersona = categoriaPersona;
+	}
+
+
 		
 	
 }

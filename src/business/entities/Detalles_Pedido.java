@@ -2,7 +2,7 @@ package business.entities;
 
 import java.util.ArrayList;
 
-public class DetallesPedido {
+public class Detalles_Pedido {
 	
 	private int cantidad;
 	private double descuento = 0;
@@ -12,11 +12,11 @@ public class DetallesPedido {
 	
 	
 	
-	public DetallesPedido(){
+	public Detalles_Pedido(){
 		
 	}
 
-	public DetallesPedido(int cantidad, double descuento, Producto producto, Pedido pedido) {
+	public Detalles_Pedido(int cantidad, double descuento, Producto producto, Pedido pedido) {
 		super();
 		this.cantidad = cantidad;
 		this.descuento = descuento;

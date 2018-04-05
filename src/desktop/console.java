@@ -12,7 +12,7 @@ public class console {
 		
 		CtrlPersonaLogic ctrPer = new CtrlPersonaLogic();
 		
-		ArrayList<Persona> pers = ctrPer.getAll();
+		//ArrayList<Persona> pers = ctrPer.getAll();
 		
 		Persona p=new Persona();
 		
@@ -21,7 +21,7 @@ public class console {
 		p.setDni(dni);
 		p= ctrPer.getByDni(p);
 		
-		System.out.println("la persona essss"+ p.getRazonSocial());
+		System.out.println("la persona ess"+ p.getCategoriaPersona().getDescripcion());
 	}
 
 }
